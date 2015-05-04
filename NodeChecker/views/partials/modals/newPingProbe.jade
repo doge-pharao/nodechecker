@@ -1,0 +1,18 @@
+.modal-header
+	h3.modal-title New Ping Probe
+
+.modal-body
+	.row
+		.col-xs-12
+			.input-group
+				span.input-group-addon(id="httpProbe-name") Name
+				input.form-control(type="text",placeholder="name",aria-describedby="httpProbe-name", value="{{probe.name}}")
+	br 
+	.row
+		.col-xs-12
+			.input-group
+				span.input-group-addon(id="httpProbe-url") URL
+				input.form-control(type="text",placeholder="http://something.com",aria-describedby="httpProbe-url", value="{{probe.url}}") 
+.modal-footer
+	button.btn.btn-primary(ng-click="ok()") OK
+	button.btn.btn-warning(ng-click="cancel()") Cancel

@@ -1,0 +1,7 @@
+include mixins/navBar
+
++nav("NodeChecker", "dropdown_menu")
+	+nav_item_link( "/#/", "active" ) Home
+	+nav_item_link( "/probes" ) New Group
+div(id="grupos" ng-controller="displayGroupList")
+	content-group(ng-repeat="group in groups" content="group")

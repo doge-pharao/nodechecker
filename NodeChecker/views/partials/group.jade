@@ -1,0 +1,8 @@
+div
+	.row(style="margin-left:10px; margin-right:10px")
+	.col-xs-3
+		div(class="panel panel-success")
+			.panel-heading 
+				a(href="#/group/{{group._id}}", style="color:black") {{group.name}}
+			.panel-body
+				p {{group.status}}

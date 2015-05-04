@@ -1,0 +1,41 @@
+div(class="panel panel-success")
+		.panel-heading 
+			.row
+				.col-xs-8
+					a(href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#{{probe._id}}") 
+						span(style="color:black") {{probe.name}}
+				.col-xs-4
+					.row
+						.col-xs-6
+							p {{probe.enabled}}
+						.col-xs-3
+							label(for="{{probe._id}}_radio_enabled")
+								input(type="radio", name="{{probe._id}}_radio_enabled", value="true")
+								|	ON
+						.col-xs-3
+							label(for="{{probe.id}}_radio_enabled")
+								input(type="radio", name="{{probe._id}}_radio_enabled", value="false")
+								|	OFF
+		.panel-body.panel-collapse.collapse.out(id="{{probe._id}}")
+			.row
+				.col-xs-12
+					.input-group
+						span.input-group-addon(id="{{probe._id}}-url") URL
+						input.form-control(type="text",placeholder="http://something.com",aria-describedby="{{probe._id}}-url", value="{{probe.url}}") 
+			br
+			.row
+				.col-xs-12
+					.panel.panel-default
+						.panel-heading Headers
+						.panel-body
+							div(ng-repeat="header in probe.method.headers" content="header")
+								.row_
+									.col-xs-6
+										.input-group
+											span.input-group-addon(id="#{{probe.id}}-header-name") Header name
+											input.form-control(type="text",placeholder="http://something.com",aria-describedby="#{{header._id}}-header-name", value="#{{header.name}}")
+
+									.col-xs-6
+										.input-group
+											span.input-group-addon(id="#{{header._id}}-header-value") Header value
+											input.form-control(type="text",placeholder="http://something.com",aria-describedby="#{{header._id}}-header-value", value="#{{header.value}}")

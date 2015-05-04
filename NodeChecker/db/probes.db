@@ -1,0 +1,2 @@
+{"_id":"AIgVhS3JV55PBto1","type":"PingProbe","name":"Conexion Desa","status":"OK","enabled":"true","url":"http://172.17.201.137:9090/fnxRules"}
+{"_id":"AIgVhS3JV55PBto2","type":"HTTPProbe","name":"Content Resolver","status":"OK","enabled":"false","url":"http://172.17.201.137:9090/fnxContentResolver","method":{"name":"GET","headers":[{"name":"name1","value":"value1"},{"name":"name2","value":"value2"}],"expected":""}}

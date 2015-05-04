@@ -1,0 +1,73 @@
+[ {
+	"id" : 10,
+	"name" : "Desarrollo",
+	"status" : "OK",
+	"probes" : [ {
+		"id" : 1,
+		"type": "PingProbe",
+		"name" : "Conexion Desa",
+		"status" : "OK",
+		"enabled": "true",
+		"url" : "http://172.17.201.137:9090/fnxRules"
+		}, {
+		"id" : 2,
+		"type": "HTTPProbe",
+		"name" : "Content Resolver",
+		"status" : "OK",
+		"enabled": "false",
+		"url" : "http://172.17.201.137:9090/fnxContentResolver",
+		"method" : {
+			"name" : "GET",
+			"headers" : [ {
+				"name" : "name1",
+				"value" : "value1"
+			}, {
+				"name" : "name2",
+				"value" : "value2"
+			} ],
+			"expected" : ""
+		}
+	} ]
+},
+{
+	"id" : 3,
+	"name" : "UAT",
+	"status" : "ERROR",
+	"probes" : [ {
+		"id" : 1,
+		"type": "HTTPProbe",
+		"name" : "Rules",
+		"status" : "OK",
+		"enabled": "true",
+		"url" : "http://172.17.201.137:9090/fnxRules",
+		"method" : {
+			"name" : "GET",
+			"headers" : [ {
+				"name" : "name1",
+				"value" : "value1"
+			}, {
+				"name" : "name2",
+				"value" : "value2"
+			} ],
+			"expected" : ""
+		}
+	}, {
+		"id" : 2,
+		"type": "HTTPProbe",
+		"name" : "Content Resolver",
+		"status" : "ERROR",
+		"enabled": "true",
+		"url" : "http://172.17.201.137:9090/fnxContentResolver",
+		"method" : {
+			"name" : "GET",
+			"headers" : [ {
+				"name" : "name1",
+				"value" : "value1"
+			}, {
+				"name" : "name2",
+				"value" : "value2"
+			} ],
+			"expected" : ""
+		}
+	} ]
+}]

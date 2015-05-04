@@ -1,0 +1,17 @@
+{
+  "name": "NodeChecker",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+	"body-parser" : "*",
+    "express": "~4.4.5",
+    "jade": "*",
+    "request": "*",
+    "cron": "*",
+    "nedb": "*",
+    "async" : "*"
+  }
+}

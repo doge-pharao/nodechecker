@@ -1,0 +1,24 @@
+include mixins/navBar
+
+div(ng-controller="ModalDemoCtrl")
+	+nav("NodeChecker", "dropdown_menu")
+		+nav_item_link( "/#/" ) Home
+		+nav_item_raw()
+			block content
+					a(style="cursor:pointer" ng-click="open('lg')") Add new probe
+					div(ng-show="selected") Selection from a modal: {{ selected }}
+				
+div(id="detail" ng-controller="displayGroupDetail" group-id="{{detail._id}}")
+	.panel.panel-default
+		.panel-heading 
+			h1 {{detail.name}}
+		.panel-body
+			.row
+				.col-xs-12
+					div(ng-repeat="probe in detail.probes" content="probe")
+						div(ng-switch="probe.type")
+							div(ng-switch-when="HTTPProbe")
+								div(ng-include="'partials/httpProbe'")					
+							div(ng-switch-when="PingProbe")
+								div(ng-include="'partials/pingProbe'")
+							div(ng-switch-default)
