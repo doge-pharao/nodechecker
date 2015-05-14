@@ -1,15 +1,11 @@
 .modal-header
 	h3.modal-title New Probe
 
-.modal-body
-	div(ng-controller="DropdownCtrl")
-		div.btn-group(dropdown is-open="status.isopen" on-toggle="toggled(open)")
-			button.btn.btn-primary.dropdown-toggle(type="button" dropdown-toggle ng-disabled="disabled") Tipo
-				span.caret
-			ul.dropdown-menu(role="menu")
-				li(ng-repeat="aType in probeTypes")
-					a(href="#") {{aType}}
-								
+.modal-body(ng-controller="probeTypeSelectionCtrl")
+	select(ng-change="update()"
+					ng-model="aTypeSelected"
+					ng-options="aTypeSelected.value as aTypeSelected.caption for aTypeSelected in probeTypes")
+
 .modal-footer
 	button.btn.btn-primary(ng-click="ok()") OK
 	button.btn.btn-warning(ng-click="cancel()") Cancel

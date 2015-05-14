@@ -1,8 +1,8 @@
 div(class="panel panel-success")
-	.panel-heading 
+	.panel-heading
 		.row
 			.col-xs-8
-				a(href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#{{probe._id}}") 
+				a(href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#{{probe._id}}")
 					span(style="color:black") {{probe.name}}
 			.col-xs-4
 				.row
@@ -20,5 +20,5 @@ div(class="panel panel-success")
 		.row
 			.col-xs-12
 				.input-group
-					span.input-group-addon(id="{{probe._id}}-url") URL
-					input.form-control(type="text",placeholder="http://something.com",aria-describedby="{{probe._id}}-url", value="{{probe.url}}") 
+					span.input-group-addon(id="{{probe._id}}-destination") Destination
+					input.form-control(type="text",placeholder="192.168.0.1",aria-describedby="{{probe._id}}-destination", value="{{probe.destination}}")

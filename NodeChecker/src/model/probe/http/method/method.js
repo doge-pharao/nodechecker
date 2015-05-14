@@ -1,13 +1,16 @@
-function Method (url, headers, status) {
-	this.url = url;
+function Method (name, headers) {
+	this.name = name;
 	this.headers = headers;
-	this.status = status;
 };
 
 Method.prototype.constructor = Method;
 
 Method.prototype.doJob = function(){
-	console.log("doJob. Method. ");
+	throw ("You need implement doJob() method in a child object.");
+}
+
+Method.prototype.toString = function() {
+	return JSON.stringify(this);
 }
 
 module.exports = Method;

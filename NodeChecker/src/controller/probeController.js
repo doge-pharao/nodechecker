@@ -29,7 +29,7 @@ ProbeController.prototype.find = function(req, res) {
 
 	this.myDb.find("", function(err, probes) { // Query in NeDB via NeDB Module
 		if (err || !probes)
-			console.log("No users found");
+			console.log("No probes found");
 		else {
 			res.writeHead(200, {
 				'Content-Type' : 'application/json'
@@ -39,7 +39,7 @@ ProbeController.prototype.find = function(req, res) {
 				str = str + JSON.stringify(probe) + '\n';
 			});
 			str = str.trim();
-			if (str.length > 1) { 
+			if (str.length > 1) {
 				str = str.substring(0, str.length - 1);
 			}
 			str = str + ']';

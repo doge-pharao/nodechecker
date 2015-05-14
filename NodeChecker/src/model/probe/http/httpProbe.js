@@ -1,22 +1,21 @@
-var Probe = require('./probe');
+var Probe = require('../probe');
 
-function HttpProbe (name, status, enabled, url) {
-	
-	Probe.call(this, name, status, enabled);
-	
+function HttpProbe (id, name, status, enabled, url, method) {
+
+	Probe.call(this, id, name, status, enabled);
+
 	this.url = url;
+	this.method = method;
 };
 
+HttpProbe.prototype = Object.create(Probe.prototype);
 
+HttpProbe.prototype.constructor = HttpProbe;
 
-console.log(Probe.prototype);
-PingProbe.prototype = Object.create(Probe.prototype);
-
-PingProbe.prototype.constructor = PingProbe;
-
-PingProbe.prototype.doJob = function(){
-	console.log("doJob. PingProbe " + this.name + this._id);
+HttpProbe.prototype.doJob = function(){
+	console.log("doJob. HttpProbe " + this.name + "; id:" + this._id);
+	this.method.doJob();
 }
 
 
-module.exports = Probe;
+module.exports = HttpProbe;

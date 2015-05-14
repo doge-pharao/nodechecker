@@ -5,9 +5,9 @@ var ProbeService = require('../service/probeService');
 function ProbeExecutionHandler (aDb) {
 	probeService = new ProbeService(aDb);
 	this.currentJobs = {};
-	
+
 	var currentJobs = this.currentJobs;
-	
+
 	probeService.findAll(function(results){
 		results.forEach(function(aProbe){
 			currentJobs[aProbe.id] = new CronJob(
@@ -15,11 +15,11 @@ function ProbeExecutionHandler (aDb) {
 						// Runs every weekday (Monday through Friday)
 						// at 11:30:00 AM. It does not run on Saturday
 						// or Sunday.
-						console.log(currentJobs);
+						aProbe.doJob();
 					}, function() {
 						// This function is executed when the job stops
 						console.log("stop");
-						console.log(currentJobs);
+						aProbe.stopJob();
 					}, aProbe.enabled /* Start the job right now */,
 					"America/Los_Angeles" /* Time zone of this job. */
 			);

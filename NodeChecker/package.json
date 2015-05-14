@@ -12,6 +12,7 @@
     "request": "*",
     "cron": "*",
     "nedb": "*",
-    "async" : "*"
+    "async" : "*",
+    "mocha" : "*"
   }
 }
