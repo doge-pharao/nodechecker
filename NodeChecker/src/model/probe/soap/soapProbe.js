@@ -1,4 +1,4 @@
-var Probe = require('./probe');
+var Probe = require('../probe');
 
 function SoapProbe (name, status, enabled, url) {
 
@@ -10,6 +10,8 @@ function SoapProbe (name, status, enabled, url) {
 SoapProbe.prototype = Object.create(Probe.prototype);
 
 SoapProbe.prototype.constructor = SoapProbe;
+
+SoapProbe.prototype.constructorFromJSON = function(){};
 
 SoapProbe.prototype.doJob = function(){
 	console.log("doJob. SoapProbe " + this.name + this._id);

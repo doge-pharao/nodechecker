@@ -6,38 +6,19 @@
 
 */
 
-var PingProbe = require('../model/probe/pingProbe');
-
-var HttpProbe = require('../model/probe/http/httpProbe');
-var MethodFactory = require('./methodFactory');
+var probes = require('../model/probe');
 
 var ProbeFactory = function() {
-   this.methodFactory = new MethodFactory();
+   for(var probeType in probes) {
+     ProbeFactory.prototype['create' + probeType] = probes[probeType].prototype['constructorFromJSON'];
+   };
 }
 
 ProbeFactory.prototype.constructor = ProbeFactory;
 
-ProbeFactory.prototype.createPingProbe = function(aProbeData) {
-  var newProbe = new PingProbe (aProbeData._id, aProbeData.name,
-                      aProbeData.status, aProbeData.enabled,
-                      aProbeData.destination);
-
-  return newProbe;
-};
-
-ProbeFactory.prototype.createHttpProbe = function(aProbeData) {
-  var method = this.methodFactory.createGetMethod(aProbeData.method);
-  var newProbe = new HttpProbe (aProbeData._id, aProbeData.name,
-                      aProbeData.status, aProbeData.enabled,
-                      aProbeData.url, method);
-
-  return newProbe;
-};
-
 ProbeFactory.prototype.createProbeFromJSON = function(aProbeData) {
-  console.log(aProbeData);
-
-  var myProbe;
+  return this['create'+aProbeData.type](aProbeData);
+  /*var myProbe;
   switch(aProbeData.type) {
     case "PingProbe": {
       console.log("PingProbe");
@@ -50,7 +31,7 @@ ProbeFactory.prototype.createProbeFromJSON = function(aProbeData) {
     }; break;
   }
 
-  return myProbe;
+  return myProbe; */
 }
 
 module.exports = ProbeFactory;

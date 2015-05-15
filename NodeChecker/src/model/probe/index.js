@@ -1,3 +1,3 @@
-exports.PingProbe = require("./pingProbe");
-exports.SoapProbe = require("./soapProbe");
 exports.HttpProbe = require("./http/httpProbe");
+exports.PingProbe = require("./ping/pingProbe");
+exports.SoapProbe = require("./soap/soapProbe");

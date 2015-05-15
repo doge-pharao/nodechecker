@@ -53,6 +53,7 @@ nodeCheckerApp.config(function($routeProvider) {
 nodeCheckerApp.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
 
 	  $scope.ok = function () {
+			console.log($scope.probeData);
 	    $modalInstance.close();
 	  };
 
@@ -63,7 +64,8 @@ nodeCheckerApp.controller('ModalInstanceCtrl', function ($scope, $modalInstance)
 
 
 nodeCheckerApp.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
-	  $scope.open = function (size) {
+
+	$scope.open = function (size) {
 
 	    var modalInstance = $modal.open({
 	      templateUrl: '/partials/modals/newProbeModal',
@@ -71,8 +73,8 @@ nodeCheckerApp.controller('ModalDemoCtrl', function ($scope, $modal, $log) {
 	      size: size
 	    });
 
-	    modalInstance.result.then(function ($aTypeSelected) {
-				console.log($aTypeSelected);
+	    modalInstance.result.then(function () {
+
 	    }, function () {
 	      $log.info('Modal dismissed at: ' + new Date());
 	    });
@@ -88,8 +90,8 @@ nodeCheckerApp.controller('probeTypeSelectionCtrl', function ($scope) {
 	  ];
 
 		$scope.update = function() {
-
 	    alert($scope.aTypeSelected);
+			$scope.$parent.probeData = $scope.aTypeSelected;
 	  };
 
 	});

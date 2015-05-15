@@ -1,5 +1,5 @@
-var GetMethod = require('../model/probe/http/method/getMethod');
-var PostMethod = require('../model/probe/http/method/postMethod');
+var GetMethod = require('./getMethod');
+var PostMethod = require('./postMethod');
 
 var MethodFactory = function() {
 
